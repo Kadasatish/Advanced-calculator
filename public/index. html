@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Calculator</title>
+</head>
+<body>
+  <h1>Advanced Calculator</h1>
+  <input id="a" type="number" placeholder="Number A">
+  <input id="b" type="number" placeholder="Number B">
+  <select id="op">
+    <option value="add">+</option>
+    <option value="sub">–</option>
+    <option value="mul">×</option>
+    <option value="div">÷</option>
+    <option value="sqrt">√ (A only)</option>
+    <option value="pow">A^B</option>
+    <option value="mod">A % B</option>
+  </select>
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+  <button onclick="getHistory()">View History</button>
+  <ul id="history"></ul>
+
+  <script src="index.js"></script>
+</body>
+</html>
