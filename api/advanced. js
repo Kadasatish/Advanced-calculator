@@ -1,0 +1,14 @@
+export default function handler(req, res) {
+  const { op, a, b } = req.query;
+  const x = parseFloat(a), y = parseFloat(b);
+  let result;
+
+  switch (op) {
+    case 'sqrt': result = Math.sqrt(x); break;
+    case 'pow': result = Math.pow(x, y); break;
+    case 'mod': result = x % y; break;
+    default: result = 'Invalid op';
+  }
+
+  res.status(200).json({ result });
+}
