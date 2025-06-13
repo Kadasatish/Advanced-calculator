@@ -1,0 +1,29 @@
+function calculate() {
+  const a = document.getElementById('a').value;
+  const b = document.getElementById('b').value;
+  const op = document.getElementById('op').value;
+  const api = ['sqrt', 'pow', 'mod'].includes(op) ? 'advanced' : 'calc';
+
+  fetch(`/api/${api}?op=${op}&a=${a}&b=${b}`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('result').innerText = 'Result: ' + data.result;
+    })
+    .catch(() => {
+      document.getElementById('result').innerText = 'Error computing';
+    });
+}
+
+function getHistory() {
+  fetch('/api/history')
+    .then(res => res.json())
+    .then(data => {
+      const historyList = document.getElementById('history');
+      historyList.innerHTML = '';
+      data.history.forEach(entry => {
+        const li = document.createElement('li');
+        li.innerText = entry;
+        historyList.appendChild(li);
+      });
+    });
+}
